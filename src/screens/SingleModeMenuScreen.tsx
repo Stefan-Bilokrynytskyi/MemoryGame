@@ -1,6 +1,9 @@
 import Arrow from '@src/assets/icons/Arrow';
 import MyButton from '@src/components/MyButton';
 import {SingleModeMenuScreenProps} from '@src/navigation/types';
+import { setCards } from '@src/redux/slices/CardsSlice';
+import {Screens} from '@src/utils/constants/screens';
+import generateCardArray from '@src/utils/generateCardArray';
 import {useState} from 'react';
 import {
   Button,
@@ -10,10 +13,17 @@ import {
   Text,
   View,
 } from 'react-native';
+import { useDispatch } from 'react-redux';
 
 const SingleModeMenuScreen = ({navigation}: SingleModeMenuScreenProps) => {
-  const goBackHandler = () => navigation.goBack();
   const [selectedLevel, setSelectedLevel] = useState<string>('easy');
+  const dispatch = useDispatch();
+  const goBackHandler = () => navigation.goBack();
+  const navigateToGame = () => {
+    const cards = generateCardArray(selectedLevel);
+    dispatch(setCards(cards));
+    navigation.navigate(Screens.SINGLE_MODE_GAME);
+  };
 
   return (
     <ImageBackground
@@ -61,7 +71,7 @@ const SingleModeMenuScreen = ({navigation}: SingleModeMenuScreenProps) => {
         <Text style={styles.difficultyText}>Choose difficulty</Text>
       </View>
       <View style={styles.playButtonContainer}>
-        <MyButton text="Start Game" onClickHandler={() => {}} />
+        <MyButton text="Start Game" onClickHandler={navigateToGame} />
       </View>
     </ImageBackground>
   );

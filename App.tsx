@@ -6,6 +6,7 @@
  */
 
 import RootNavigator from '@src/navigation/RootNavigator';
+import store from '@src/redux/store';
 import React from 'react';
 
 import {
@@ -16,17 +17,14 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {Provider} from 'react-redux';
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return <RootNavigator />;
+  return (
+    <Provider store={store}>
+      <RootNavigator />
+    </Provider>
+  );
 }
 
 const styles = StyleSheet.create({

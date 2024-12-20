@@ -4,6 +4,7 @@ import MainMenuScreen from '@src/screens/MainMenuScreen';
 import SingleModeMenuScreen from '@src/screens/SingleModeMenuScreen';
 import {Screens} from '@src/utils/constants/screens';
 import {AppStackParamList} from './types';
+import SingleModeGameScreen from '@src/screens/SingleModeGameScreen';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 
@@ -15,6 +16,10 @@ const RootNavigator = () => {
         <Stack.Screen
           name={Screens.SINGLE_MODE_MENU}
           component={SingleModeMenuScreen}
+        />
+        <Stack.Screen
+          name={Screens.SINGLE_MODE_GAME}
+          component={SingleModeGameScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
