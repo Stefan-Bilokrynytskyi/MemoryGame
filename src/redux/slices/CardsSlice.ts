@@ -11,7 +11,6 @@ export const cardsSlice = createSlice({
   initialState,
   reducers: {
     setCards: (state, action: PayloadAction<CardItem[][]>) => {
-      console.log(action.payload);
       state.cards = action.payload;
     },
   },

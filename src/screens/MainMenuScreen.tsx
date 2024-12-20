@@ -11,7 +11,6 @@ import {
   Text,
   View,
 } from 'react-native';
-import {Screen} from 'react-native-screens';
 
 const MainMenuScreen = ({navigation}: MainMenuScreenProps) => {
   const navigateToSingleModeMenu = () =>

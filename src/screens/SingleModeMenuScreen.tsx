@@ -1,9 +1,12 @@
 import Arrow from '@src/assets/icons/Arrow';
 import MyButton from '@src/components/MyButton';
+import Smile from '@src/components/Smile';
 import {SingleModeMenuScreenProps} from '@src/navigation/types';
-import { setCards } from '@src/redux/slices/CardsSlice';
+import {setCards} from '@src/redux/slices/CardsSlice';
 import {Screens} from '@src/utils/constants/screens';
+import Smiles from '@src/utils/constants/Smiles';
 import generateCardArray from '@src/utils/generateCardArray';
+import {getTimeDependsToLevel} from '@src/utils/getTimeDependsToLevel';
 import {useState} from 'react';
 import {
   Button,
@@ -13,7 +16,8 @@ import {
   Text,
   View,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
+import LinearGradient from 'react-native-linear-gradient';
+import {useDispatch} from 'react-redux';
 
 const SingleModeMenuScreen = ({navigation}: SingleModeMenuScreenProps) => {
   const [selectedLevel, setSelectedLevel] = useState<string>('easy');
@@ -21,8 +25,9 @@ const SingleModeMenuScreen = ({navigation}: SingleModeMenuScreenProps) => {
   const goBackHandler = () => navigation.goBack();
   const navigateToGame = () => {
     const cards = generateCardArray(selectedLevel);
+    const time = getTimeDependsToLevel(selectedLevel);
     dispatch(setCards(cards));
-    navigation.navigate(Screens.SINGLE_MODE_GAME);
+    navigation.navigate(Screens.SINGLE_MODE_GAME, {time});
   };
 
   return (
@@ -43,7 +48,23 @@ const SingleModeMenuScreen = ({navigation}: SingleModeMenuScreenProps) => {
 
         <View style={styles.separator}></View>
       </View>
-      <View style={styles.rulesContainer}></View>
+
+      <ImageBackground
+        source={require('@src/assets/images/background-rules.jpg')}
+        resizeMode="cover"
+        style={styles.rulesContainer}>
+        <LinearGradient
+          colors={['rgba(4, 37, 54,1)', 'rgba(4, 37, 54,0.5)']} // от плотного цвета к прозрачному
+          style={styles.backgroundContainer}>
+          <View style={styles.rulesTextContainer}>
+            <Text style={styles.rulesCaption}>MEMORY</Text>
+            <Text style={styles.rulesText}>Flip 2 cards and find pairs.</Text>
+          </View>
+        </LinearGradient>
+      </ImageBackground>
+      <View style={styles.smileContainer}>
+        <Smile SvgComponent={Smiles[selectedLevel]} />
+      </View>
       <View style={styles.chooseDifficultyContainer}>
         <MyButton
           text="Easy"
@@ -82,7 +103,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   headerContainer: {
-    paddingVertical: 20,
+    paddingVertical: 10,
     position: 'relative',
   },
   textAndButtonContainer: {
@@ -94,7 +115,7 @@ const styles = StyleSheet.create({
   },
   separator: {
     position: 'absolute',
-    height: 1,
+    height: 0,
     width: '100%',
     bottom: 0,
     backgroundColor: '#750e77',
@@ -108,12 +129,37 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   rulesContainer: {
-    flex: 0.4,
-    backgroundColor: '#fff',
+    flex: 0.7,
+    position: 'relative',
+  },
+  backgroundContainer: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  rulesTextContainer: {
+    marginTop: 20,
+    textAlign: 'center',
+  },
+  rulesCaption: {
+    fontWeight: 'bold',
+    color: '#fff',
+    fontSize: 32,
+    textAlign: 'center',
+  },
+  rulesText: {
+    fontWeight: 'bold',
+    color: '#fff',
+    fontSize: 24,
+    textAlign: 'center',
+  },
+  smileContainer: {
+    alignItems: 'center',
+
+    transform: [{translateY: -50}],
   },
   chooseDifficultyContainer: {
     flexDirection: 'row',
-    marginTop: 20,
+
     paddingHorizontal: 20,
     gap: 20,
   },
