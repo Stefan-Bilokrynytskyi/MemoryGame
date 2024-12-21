@@ -5,13 +5,13 @@ import {Pressable, StyleSheet, Animated, View} from 'react-native';
 import Svg, {Circle} from 'react-native-svg';
 
 type CircularButtonProps = {
-  size: number; // Диаметр кнопки
-  duration: number; // Время анимации в мс
-  onComplete: () => void; // Функция, вызываемая по завершении анимации
-  color?: string; // Цвет прогресс-круга (по умолчанию полупрозрачный фиолетовый)
-  backgroundColor?: string; // Фоновый цвет кнопки (по умолчанию белый)
-  children?: React.ReactNode; // Содержимое кнопки (например, иконка или текст)
-  strokeWidth?: number; // Толщина прогресс-круга (по умолчанию 30)
+  size: number;
+  duration: number;
+  onComplete: () => void;
+  color?: string;
+  backgroundColor?: string;
+  children?: React.ReactNode;
+  strokeWidth?: number;
 };
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
@@ -20,16 +20,15 @@ const CircularButton: React.FC<CircularButtonProps> = ({
   size,
   duration,
   onComplete,
-  color = '#750e77', // Полупрозрачный фиолетовый
+  color = '#750e77',
   backgroundColor = '#fff',
   children,
-  strokeWidth = 7, // Увеличенная толщина прогресс-круга
+  strokeWidth = 7,
 }) => {
   const animatedValue = useRef(new Animated.Value(0)).current;
   const isCompleted = useRef(false);
 
-  // Радиус прогресс-круга с учётом толщины
-  const progressRadius = (size + strokeWidth * 2) / 2; // Радиус прогресс-круга
+  const progressRadius = (size + strokeWidth * 2) / 2;
   const progressCircumference = 2 * Math.PI * progressRadius;
 
   const startAnimation = () => {
@@ -68,12 +67,10 @@ const CircularButton: React.FC<CircularButtonProps> = ({
         styles.container,
         {width: size + strokeWidth * 2, height: size + strokeWidth * 2},
       ]}>
-      {/* Прогресс-круг */}
       <Svg
         width={size + strokeWidth * 2}
         height={size + strokeWidth * 2}
         style={StyleSheet.absoluteFill}>
-        {/* Фоновый круг */}
         <Circle
           stroke="#eee"
           fill="none"
@@ -82,7 +79,7 @@ const CircularButton: React.FC<CircularButtonProps> = ({
           r={(size + strokeWidth * 2) / 2 - strokeWidth}
           strokeWidth={strokeWidth}
         />
-        {/* Анимированный круг */}
+
         <AnimatedCircle
           stroke={color}
           fill="none"
@@ -95,7 +92,7 @@ const CircularButton: React.FC<CircularButtonProps> = ({
           strokeLinecap="round"
         />
       </Svg>
-      {/* Кнопка */}
+
       <Pressable
         onPressIn={startAnimation}
         onPressOut={resetAnimation}
@@ -123,7 +120,7 @@ const styles = StyleSheet.create({
   button: {
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'absolute', // Размещаем кнопку поверх SVG
+    position: 'absolute',
   },
   content: {
     position: 'absolute',

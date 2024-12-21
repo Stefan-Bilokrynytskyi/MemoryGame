@@ -5,7 +5,9 @@ import {CardItem} from '@src/utils/generateCardArray';
 export type AppStackParamList = {
   [Screens.MAIN_MENU]: undefined;
   [Screens.SINGLE_MODE_MENU]: undefined;
-  [Screens.SINGLE_MODE_GAME]: undefined;
+  [Screens.SINGLE_MODE_GAME]: {
+    time: number;
+  };
 };
 
 export type MainMenuScreenProps = NativeStackScreenProps<

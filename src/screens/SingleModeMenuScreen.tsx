@@ -54,7 +54,7 @@ const SingleModeMenuScreen = ({navigation}: SingleModeMenuScreenProps) => {
         resizeMode="cover"
         style={styles.rulesContainer}>
         <LinearGradient
-          colors={['rgba(4, 37, 54,1)', 'rgba(4, 37, 54,0.5)']} // от плотного цвета к прозрачному
+          colors={['rgba(4, 37, 54,1)', 'rgba(4, 37, 54,0.5)']}
           style={styles.backgroundContainer}>
           <View style={styles.rulesTextContainer}>
             <Text style={styles.rulesCaption}>MEMORY</Text>

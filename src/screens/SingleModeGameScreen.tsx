@@ -18,7 +18,7 @@ const SingleModeGameScreen = ({
 }: SingleModeGameScreenProps) => {
   const cards = useSelector((state: RootState) => state.cards.cards);
   const {time} = route.params;
-  console.log('time', time);
+
   const [firstCard, setFirstCard] = useState<{name: string; id: string} | null>(
     null,
   );
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   },
   circularButtonContainer: {
     position: 'absolute',
-    top: '50%', // Центрирование по вертикали
+    top: '50%',
     transform: [{translateY: -25}],
     right: 0,
     zIndex: 10,
