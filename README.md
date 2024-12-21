@@ -1,79 +1,39 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Memory Game
 
-# Getting Started
+**Memory Game** — це захоплююча та інтерактивна гра, розроблена для перевірки та розвитку вашої пам'яті та концентрації. Підходить для гравців усіх вікових категорій, ця гра пропонує простий, але захоплюючий геймплей, який дозволить вам весело та корисно провести час.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Опис Гри
 
-## Step 1: Start the Metro Server
+Мета **Memory Game** — знайти всі пари однакових карток за мінімальну кількість ходів та в відведений час. Гра починається з розкладених обличчям вниз карток. У кожному ході ви можете перевернути дві картки, намагаючись знайти співпадаючі пари. Якщо пара співпадає, картки залишаються перевернутими. Якщо ні — вони знову закриваються, і ви пробуєте ще раз. Якщо за відведений час ви не відкрили усі картки, то ви програли!
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Технології
 
-To start Metro, run the following command from the _root_ of your React Native project:
+**Memory Game** розроблена з використанням сучасних технологій, що забезпечують стабільну роботу та плавний ігровий процес:
 
-```bash
-# using npm
-npm start
+- **React Native:** Фреймворк для кросплатформенної розробки мобільних додатків.
+- **TypeScript:** Мова програмування для підвищення надійності коду.
+- **Redux:** Управління станом додатку для забезпечення узгодженості даних.
+- **React Navigation:** Ефективна навігація між екранами додатку.
 
-# OR using Yarn
-yarn start
-```
+## Основні можливості 
+- **Різні рівні складності:** в залежності від рівня складності гравець отримає різну кількість карток та часу.
+- **Таймер:** користувач може відслідковувати скільки часу у ньго залишилось, щоб знайти усі пари карток.
+- **Зручне меню та візуальний інтерфейс:** у грі є гарне та зручне меню для вибору рівня складності гри.
 
-## Step 2: Start your Application
+## Скріншоти
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+![image](https://github.com/user-attachments/assets/05d9c9c5-4fd3-4549-b86e-d827660e6521)
 
-### For Android
+*Головне меню гри.*
 
-```bash
-# using npm
-npm run android
+![image](https://github.com/user-attachments/assets/c24fa9ae-ed3b-4110-b324-3621afaee8b9)
 
-# OR using Yarn
-yarn android
-```
+*Екран гри з картками.*
 
-### For iOS
+![image](https://github.com/user-attachments/assets/b8fdd2ce-b6a5-401b-89cd-ebd86e9d7f6d)
 
-```bash
-# using npm
-npm run ios
+*Модальне вікно перемоги.*
 
-# OR using Yarn
-yarn ios
-```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+*Дякую за інтерес до **Memory Game**! Сподіваюся, вам сподобається грати так само, як мені сподобалося створювати цю гру.*
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
